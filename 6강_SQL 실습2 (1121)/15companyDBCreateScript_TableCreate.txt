@@ -1,0 +1,61 @@
+use CompanyDB;
+create table EMPLOYEE (
+	Fname varchar(15) not null,
+	Minit	char,
+	Lname varchar(15) not null,
+	Ssn char(9) not null,
+	Bdate DATETIME,
+	Address	varchar(30),
+	Sex 	char,
+	Salary	Decimal(10,2),
+	Super_ssn	char(9),
+	DNO	int	not null,
+	primary key(SSN)
+);
+
+
+
+create table DEPARTMENT (
+	Dname		varchar(15)	not null,
+	Dnumber	int		not null,
+	Mgr_ssn	char(9)		not null,
+	Mgr_start_date	datetime,
+	primary key(Dnumber),
+	unique (Dname)
+);
+
+
+create table DEPT_LOCATIONS (
+	Dnumber 	int	not null,
+	Dlocation	varchar(15)	not null,
+	primary key(Dnumber, Dlocation)
+);
+
+
+create table PROJECT (
+	Pname		varchar(15)	not null,
+	Pnumber 	int		not null,
+	Plocation	varchar(15),
+	Dnum		int		not null,
+	primary key(Pnumber),
+	unique(Pname)
+);
+
+
+create table WORKS_ON (
+	Essn		char(9) 		not null,
+	Pno		int		not null,
+	Hours		decimal(3,1)	not null,
+	primary key(Essn, Pno),
+);
+
+
+create table DEPENDENT (
+	Essn		char(9)		not null,
+	Dependent_name	varchar(15)	not null,
+	Sex		char,
+	Bdate		datetime,
+	Relationship	varchar(8),
+	primary key(ESSN, Dependent_name)
+);
+

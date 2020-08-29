@@ -1,0 +1,19 @@
+<SCRIPT LANGUAGE=vbscript RUNAT=Server>
+Option Explicit
+
+Sub Application_OnStart
+	Dim dbConnect
+	
+	dbConnect = "Provider=SQLOLEDB.1;Password=1234;Persist Security Info=False;User ID=super;Initial Catalog=mdbtest;Data Source=ACER\SQLEXPRESS"
+	Application("dbConnect") = dbConnect
+End Sub
+
+Sub Application_OnEnd
+End Sub
+
+Sub Session_OnStart
+End Sub
+
+Sub Session_OnEnd
+End Sub
+</SCRIPT>
